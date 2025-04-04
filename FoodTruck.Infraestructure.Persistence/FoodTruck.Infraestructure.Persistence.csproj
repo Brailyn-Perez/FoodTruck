@@ -17,4 +17,8 @@
     <ProjectReference Include="..\FoodTruck.Core.Domain\FoodTruck.Core.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
 </Project>
