@@ -2,12 +2,14 @@
 {
     public class Product
     {
-        int id { get; set; }
-        string name { get; set; }
-        string description { get; set; }
-        decimal price { get; set; }
-        string imageUrl { get; set; }
-        int categoryId { get; set; }
-        int Stock { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string? description { get; set; }
+        public decimal price { get; set; }
+        public string? imageUrl { get; set; }
+        public int Stock { get; set; }
+
+        public int? categoryId { get; set; }
+        public Category? category { get; set; }
     }
 }
