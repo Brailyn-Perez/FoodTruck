@@ -20,8 +20,4 @@
     <ProjectReference Include="..\FoodTruck.Core.Application\FoodTruck.Core.Application.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
 </Project>
