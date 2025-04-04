@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FoodTruck.Core.Application\FoodTruck.Core.Application.csproj" />
+    <ProjectReference Include="..\FoodTruck.Core.Domain\FoodTruck.Core.Domain.csproj" />
+    <ProjectReference Include="..\FoodTruck.Infraestructure.Persistence\FoodTruck.Infraestructure.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>
