@@ -12,4 +12,8 @@
     <ProjectReference Include="..\FoodTruck.Infraestructure.Persistence\FoodTruck.Infraestructure.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Application\" />
+  </ItemGroup>
+
 </Project>

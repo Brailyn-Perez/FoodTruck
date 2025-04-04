@@ -1,3 +1,5 @@
+using FoodTruck.IOC.Persistences;
+
 namespace FoodTruck.Presentation.WebApp
 {
     public class Program
@@ -8,6 +10,7 @@ namespace FoodTruck.Presentation.WebApp
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddPersistenceServices(builder.Configuration);
 
             var app = builder.Build();
 
