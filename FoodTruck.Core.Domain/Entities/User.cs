@@ -1,6 +1,8 @@
-﻿namespace FoodTruck.Core.Domain.Entities
+﻿using FoodTruck.Core.Domain.Common;
+
+namespace FoodTruck.Core.Domain.Entities
 {
-    public class User
+    public class User : AuditableEntity
     {
         public int id { get; set; }
         public string name { get; set; }

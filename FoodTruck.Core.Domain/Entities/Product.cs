@@ -1,6 +1,8 @@
-﻿namespace FoodTruck.Core.Domain.Entities
+﻿using FoodTruck.Core.Domain.Common;
+
+namespace FoodTruck.Core.Domain.Entities
 {
-    public class Product
+    public class Product : AuditableEntity
     {
         public int id { get; set; }
         public string name { get; set; }
