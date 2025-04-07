@@ -1,4 +1,6 @@
-﻿using FoodTruck.Infraestructure.Persistence.Context;
+﻿using FoodTruck.Core.Application.Interfaces.Persistence;
+using FoodTruck.Infraestructure.Persistence.Context;
+using FoodTruck.Infraestructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,6 +23,14 @@ namespace FoodTruck.IOC.Persistences
                 services.AddDbContext<ApplicationContext>(options =>
                     options.UseInMemoryDatabase("FoodTruckDB"));
             }
+
+            #region Repositories
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<ISaleDetailsRepository, SaleDetailRepository>();
+            services.AddTransient<ISaleRepository, SaleRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
+            #endregion
 
             return services;
         }
