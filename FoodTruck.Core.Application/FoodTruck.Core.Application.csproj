@@ -16,9 +16,6 @@
     <Folder Include="Features\User\Queries\GetAllUsers\" />
     <Folder Include="Features\User\Queries\GetUserById\" />
     <Folder Include="Interfaces\Application\" />
-    <Folder Include="DTOs\" />
-    <Folder Include="Filters\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>
