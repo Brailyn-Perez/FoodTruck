@@ -1,0 +1,6 @@
+@FoodTruck.Presentation.WebAPI_HostAddress = http://localhost:5258
+
+GET {{FoodTruck.Presentation.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
