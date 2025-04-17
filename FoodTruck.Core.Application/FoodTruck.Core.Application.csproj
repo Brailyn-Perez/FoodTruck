@@ -7,15 +7,25 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="12.5.0" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\FoodTruck.Core.Domain\FoodTruck.Core.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\" />
+    <Folder Include="Features\User\Commands\DeleteUserCommand\" />
+    <Folder Include="Features\User\Commands\UpdateUserCommand\" />
+    <Folder Include="Features\User\Queries\GetAllUsers\" />
+    <Folder Include="Features\User\Queries\GetUserById\" />
+    <Folder Include="Interfaces\Application\" />
+    <Folder Include="DTOs\" />
+    <Folder Include="Filters\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
+    <PackageReference Include="MediatR" Version="12.5.0" />
   </ItemGroup>
 
 </Project>

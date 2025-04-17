@@ -9,7 +9,7 @@ namespace FoodTruck.Infraestructure.Persistence.Context
     {
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
-
+            ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
 
         #region overrides methods
