@@ -4,6 +4,7 @@ using FoodTruck.Infraestructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FoodTruck.Infraestructure.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20250417233019_Refactoring-Domain")]
+    partial class RefactoringDomain
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -72,9 +75,6 @@ namespace FoodTruck.Infraestructure.Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
@@ -116,11 +116,14 @@ namespace FoodTruck.Infraestructure.Persistence.Migrations
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("categoryId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
-
                     b.HasIndex("SaleDetailId");
+
+                    b.HasIndex("categoryId");
 
                     b.ToTable("products");
                 });
@@ -309,21 +312,21 @@ namespace FoodTruck.Infraestructure.Persistence.Migrations
 
             modelBuilder.Entity("FoodTruck.Core.Domain.Entities.Product", b =>
                 {
-                    b.HasOne("FoodTruck.Core.Domain.Entities.Category", "Category")
-                        .WithMany("Products")
-                        .HasForeignKey("CategoryId");
-
                     b.HasOne("FoodTruck.Core.Domain.Entities.SaleDetail", null)
-                        .WithMany("Products")
+                        .WithMany("Product")
                         .HasForeignKey("SaleDetailId");
 
-                    b.Navigation("Category");
+                    b.HasOne("FoodTruck.Core.Domain.Entities.Category", "category")
+                        .WithMany("Products")
+                        .HasForeignKey("categoryId");
+
+                    b.Navigation("category");
                 });
 
             modelBuilder.Entity("FoodTruck.Core.Domain.Entities.Sale", b =>
                 {
                     b.HasOne("FoodTruck.Core.Domain.Entities.User", "User")
-                        .WithMany("Sales")
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -349,12 +352,7 @@ namespace FoodTruck.Infraestructure.Persistence.Migrations
 
             modelBuilder.Entity("FoodTruck.Core.Domain.Entities.SaleDetail", b =>
                 {
-                    b.Navigation("Products");
-                });
-
-            modelBuilder.Entity("FoodTruck.Core.Domain.Entities.User", b =>
-                {
-                    b.Navigation("Sales");
+                    b.Navigation("Product");
                 });
 #pragma warning restore 612, 618
         }
