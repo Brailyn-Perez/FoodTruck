@@ -1,15 +1,19 @@
+using FoodTruck.Infraestructure.Identity.Models;
+using FoodTruck.Infraestructure.Identity.Seeds;
 using FoodTruck.IOC.Application;
+using FoodTruck.IOC.Identity;
 using FoodTruck.IOC.Persistences;
 using FoodTruck.Presentation.WebAPI.Extensions;
+using Microsoft.AspNetCore.Identity;
 
 namespace FoodTruck.Presentation.WebAPI
 {
-    public class Program
+    public static class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            var builder = WebApplication.CreateBuilder(args);
 
+            var builder = WebApplication.CreateBuilder(args);
             // Add services to the container.
 
             builder.Services.AddControllers();
@@ -23,6 +27,8 @@ namespace FoodTruck.Presentation.WebAPI
             builder.Services.AddPersistenceServices(builder.Configuration);
             //extensions services
             builder.Services.AddApiVersioningExtension();
+            //identity services 
+            builder.Services.AddIdentityServices();
 
             var app = builder.Build();
 
@@ -38,6 +44,15 @@ namespace FoodTruck.Presentation.WebAPI
 
             app.MapControllers();
 
+            //scope
+            using (var scope = app.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+                var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+
+                await DefaultRoles.SeedAsync(userManager, roleManager);
+            }
             app.Run();
         }
     }
