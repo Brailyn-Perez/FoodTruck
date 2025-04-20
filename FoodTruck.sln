@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodTruck.Presentation.WebAPI", "FoodTruck.Presentation.WebAPI\FoodTruck.Presentation.WebAPI.csproj", "{FADA8A1E-DA52-4348-AE68-AA69DE3A46FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodTruck.Infraestructure.Identity", "FoodTruck.Infraestructure.Identity\FoodTruck.Infraestructure.Identity.csproj", "{00B52ED3-C234-46DC-8752-5B7E13879197}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{FADA8A1E-DA52-4348-AE68-AA69DE3A46FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FADA8A1E-DA52-4348-AE68-AA69DE3A46FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FADA8A1E-DA52-4348-AE68-AA69DE3A46FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00B52ED3-C234-46DC-8752-5B7E13879197}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00B52ED3-C234-46DC-8752-5B7E13879197}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00B52ED3-C234-46DC-8752-5B7E13879197}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00B52ED3-C234-46DC-8752-5B7E13879197}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +79,7 @@ Global
 		{EF8B61E6-B6DC-412F-9023-653215CB08BF} = {39EB6CCF-7B54-4336-A339-B7015207522B}
 		{B9E66543-EF64-4834-B8BA-07790345AE80} = {39EB6CCF-7B54-4336-A339-B7015207522B}
 		{FADA8A1E-DA52-4348-AE68-AA69DE3A46FC} = {A8927F94-59D6-42E5-A144-D97741380CED}
+		{00B52ED3-C234-46DC-8752-5B7E13879197} = {CE266F2D-4543-4C98-AB24-8393895803A4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1B316827-0AF9-4A64-BEE0-7BA079A87006}

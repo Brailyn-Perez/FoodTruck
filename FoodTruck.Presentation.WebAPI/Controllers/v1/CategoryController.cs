@@ -1,6 +1,8 @@
 ﻿using FoodTruck.Core.Application.Features.Category.Commands.CreateCategoryCommand;
 using FoodTruck.Core.Application.Features.Category.Commands.DeleteCategoryCommand;
 using FoodTruck.Core.Application.Features.Category.Commands.UpdateCategoryCommand;
+using FoodTruck.Core.Application.Features.Category.Queries.GetAllCategory;
+using FoodTruck.Core.Application.Features.Category.Queries.GetCategoryById;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FoodTruck.Presentation.WebAPI.Controllers.v1
@@ -22,7 +24,7 @@ namespace FoodTruck.Presentation.WebAPI.Controllers.v1
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id,UpdateCategoryCommand command)
+        public async Task<IActionResult> Update(int id, UpdateCategoryCommand command)
         {
             if (id != command.Id)
                 return BadRequest();
@@ -31,6 +33,20 @@ namespace FoodTruck.Presentation.WebAPI.Controllers.v1
         }
         #endregion
 
+        #region queries
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var query = new GetAllCategoryQuery();
+            return Ok(await Mediator.Send(query));
+        }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var query = new GetCategoryByIdQuery() { Id = id };
+            return Ok(await Mediator.Send(query));
+        }
+        #endregion
     }
 }
