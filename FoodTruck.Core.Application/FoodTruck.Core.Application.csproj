@@ -13,7 +13,6 @@
   <ItemGroup>
     <Folder Include="Features\User\Queries\GetAllUsers\" />
     <Folder Include="Features\User\Queries\GetUserById\" />
-    <Folder Include="Interfaces\Application\" />
   </ItemGroup>
 
   <ItemGroup>
