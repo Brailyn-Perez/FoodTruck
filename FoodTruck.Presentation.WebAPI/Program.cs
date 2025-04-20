@@ -28,7 +28,7 @@ namespace FoodTruck.Presentation.WebAPI
             //extensions services
             builder.Services.AddApiVersioningExtension();
             //identity services 
-            builder.Services.AddIdentityServices();
+            builder.Services.AddIdentityServices(builder.Configuration);
 
             var app = builder.Build();
 
@@ -52,6 +52,8 @@ namespace FoodTruck.Presentation.WebAPI
                 var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
 
                 await DefaultRoles.SeedAsync(userManager, roleManager);
+                await DefaultAdminUser.SeedAsync(userManager, roleManager);
+
             }
             app.Run();
         }

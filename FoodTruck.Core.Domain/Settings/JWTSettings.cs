@@ -1,6 +1,6 @@
 ﻿namespace FoodTruck.Core.Domain.Settings
 {
-    public class JWT
+    public class JWTSttings
     {
         public string Key { get; set; }
         public string Issuer { get; set; }
