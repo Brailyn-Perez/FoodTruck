@@ -11,8 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\User\Commands\DeleteUserCommand\" />
-    <Folder Include="Features\User\Commands\UpdateUserCommand\" />
     <Folder Include="Features\User\Queries\GetAllUsers\" />
     <Folder Include="Features\User\Queries\GetUserById\" />
     <Folder Include="Interfaces\Application\" />
