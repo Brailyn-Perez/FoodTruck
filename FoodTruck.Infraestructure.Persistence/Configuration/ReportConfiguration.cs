@@ -10,8 +10,8 @@ namespace FoodTruck.Infraestructure.Persistence.Configuration
         {
             builder.ToTable("Reports");
 
-            builder.HasKey(r => r.id);
-            builder.Property(r => r.id)
+            builder.HasKey(r => r.Id);
+            builder.Property(r => r.Id)
                 .ValueGeneratedOnAdd()
                 .IsRequired();
 

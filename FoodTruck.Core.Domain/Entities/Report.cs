@@ -1,8 +1,9 @@
-﻿namespace FoodTruck.Core.Domain.Entities
+﻿using FoodTruck.Core.Domain.Common;
+
+namespace FoodTruck.Core.Domain.Entities
 {
-    public class Report
+    public class Report : BaseEntity
     {
-        public int id { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public int TotalSales { get; set; }

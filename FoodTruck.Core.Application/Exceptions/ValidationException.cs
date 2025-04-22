@@ -1,5 +1,4 @@
 ﻿using FluentValidation.Results;
-using System.Diagnostics.Contracts;
 
 namespace FoodTruck.Core.Application.Exceptions
 {
